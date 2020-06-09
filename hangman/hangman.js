@@ -9,7 +9,7 @@ class Hangman {
     let finished = true;
 
     this.word.forEach((letter) => {
-      if (this.guessedLetter.includes(letter)) {
+      if (this.guessedLetter.includes(letter) || letter === ' ') {
       } else {
         finished = false;
       }
@@ -23,16 +23,16 @@ class Hangman {
       this.status = "playing";
     }
   }
-  getStatusMessage() {
+  get statusMessage() {
     if (this.status === "playing") {
       return `Guesses left: ${this.remainingGuesses}`;
     } else if (this.status === "failed") {
       return `Nice try! The word was "${this.word.join("")}".`;
     } else {
-      return "Great work! You guessed the work.";
+      return "Great work! You guessed the word.";
     }
   }
-  getPuzzle() {
+  get puzzle() {
     let puzzle = "";
 
     this.word.forEach((letter) => {

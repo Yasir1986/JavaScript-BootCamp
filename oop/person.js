@@ -1,4 +1,5 @@
 // Protoypal Inheritance
+// myPerson --> Person.prototype --> Object.prototype --> null
 // The Class syntax with constructor fucntions
 
 class Person {
@@ -17,16 +18,53 @@ class Person {
 
     return bio;
   }
-  setName(fullName) {
+ set fullName(fullName) {
     const names = fullName.split(" ");
     this.firstName = names[0];
     this.lastName = names[1];
   }
+  get fullName() {
+      return `${this.firstName} ${this.lastName}`
+  }
 }
 
-const me = new Person("Andrew", "Mead", 27, ["Teaching", "Biking"]);
-me.setName("Alexis Turner");
-console.log(me.getBio());
+class Employee extends Person {
+    constructor(firstName, lastName, age, position, likes) {
+        super(firstName, lastName, age, likes)
+        this.position = position
+    }
+    getBio() {
+        return `${this.fullName} is a ${this.position}.`
+        // Andeew is a teacher
+    }
+    getYearLeft() {
+        return 65 - this.age
+    }
+}
 
-const person2 = new Person("Clancey", "Turner", 51);
-console.log(person2.getBio());
+// const me = new Employee("Andrew", "Mead", 27, 'Teacher', ["Teaching", "Biking"]);
+// me.setName("Alexis Turner");
+// console.log(me.getBio());
+// console.log(me.getYearLeft())
+
+// const person2 = new Person("Clancey", "Turner", 51);
+// console.log(person2.getBio());
+
+class Students extends Person{
+    constructor(firstName, lastName, age, grade, likes){
+        super(firstName, lastName, age, likes)
+        this.grade = grade
+    }
+    updateGrade(change) {
+        this.grade = this.grade + change
+    }
+    getBio() {
+        const status = this.grade >= 70 ? 'passing' : 'failing'
+        return `${this.firstName} is ${status} the class.`
+    }
+}
+
+const me = new Employee('Andrew', 'Mead', 27, 'Teacher', [])
+me.fullName = 'Clancey Turner'
+console.log(me.getBio())
+// me.updateGrade(-20)
