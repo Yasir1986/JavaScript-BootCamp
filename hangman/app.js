@@ -19,12 +19,12 @@ window.addEventListener('keypress', (e) => {
 
 getPuzzle('2').then((puzzle) => {
     console.log(puzzle)
-}, (err) => {
+}).catch((err) => {
     console.log(`Error: ${err}`)
 })
 
 getCountry('US').then((country) => {
     console.log(country[0].name)
-}, (error) => {
+}).catch((error) => {
     console.log(`Error: ${error}`)
 })
