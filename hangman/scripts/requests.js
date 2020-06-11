@@ -1,7 +1,7 @@
 // Async Await
 const getPuzzle = async (wordCount) => {
   const resposne = await fetch(
-    `http://puzzle.mead.io/puzzle?wordCount=${wordCount}`
+    `//puzzle.mead.io/puzzle?wordCount=${wordCount}`
   );
 
   if (resposne.status === 200) {
@@ -20,7 +20,7 @@ const getCurrentCountry = async () => {
 
 // Fetch
 const getPuzzleOld = (wordCount) => {
-  return fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`)
+  return fetch(`//puzzle.mead.io/puzzle?wordCount=${wordCount}`)
     .then((resposne) => {
       if (resposne.status === 200) {
         return resposne.json();
@@ -34,7 +34,7 @@ const getPuzzleOld = (wordCount) => {
 };
 
 const getCountry = async (countryCode) => {
-  const resposne = await fetch("http://restcountries.eu/rest/v2/all");
+  const resposne = await fetch("//restcountries.eu/rest/v2/all");
 
   if (resposne.status === 200) {
     const data = await resposne.json();
@@ -48,7 +48,7 @@ const getCountry = async (countryCode) => {
 };
 
 const getCountryOld = (countryCode) => {
-  return fetch("http://restcountries.eu/rest/v2/all")
+  return fetch("//restcountries.eu/rest/v2/all")
     .then((resposne) => {
       if (resposne.status === 200) {
         return resposne.json();
@@ -64,7 +64,7 @@ const getCountryOld = (countryCode) => {
 };
 
 const getLocationOld = () => {
-  return fetch("http://ipinfo.io/json?token=1a11bd55cc8f9c").then(
+  return fetch("//ipinfo.io/json?token=1a11bd55cc8f9c").then(
     (resposne) => {
       if (resposne.status === 200) {
         return resposne.json();
@@ -76,7 +76,7 @@ const getLocationOld = () => {
 };
 
 const getLocation = async () => {
-  const resposne = await fetch("http://ipinfo.io/json?token=1a11bd55cc8f9c");
+  const resposne = await fetch("//ipinfo.io/json?token=1a11bd55cc8f9c");
 
   if (resposne.status === 200) {
     const data = resposne.json();
